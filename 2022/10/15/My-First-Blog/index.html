@@ -411,6 +411,43 @@
 </ul>
 <p>为了方便，我们可以直接将github理解为一个<strong>数据中心</strong>，为用户免费提供存放代码、网站等等文件的地方。github网站与Git配套使用，能很方便地<strong>上传本地数据</strong>，并从网站上 <strong>同步数据到本地电脑</strong>。<del>至少比网盘快多了</del></p>
 <p>我们先创建一个属于自己的账号。</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>什么是Git？</li>
+</ul>
+<p>Git  是一个快速、可扩展的 分布式版本控制系统。字面理解，版本控制系统，通过它能方便地管理各种版本的代码、软件。</p>
+<ul>
+<li>Git 的基本操作</li>
+</ul>
+<p>刚进入的时候，Git会要求用户设置名字和Email.</p>
+<ul>
+<li>初始化一个仓库</li>
+</ul>
+<p><code>git init</code></p>
+<p>完成操作后，我们会发现路径的最后多出一个 <em><strong>(master)</strong></em></p>
+<p>![](D:\Myblog\source_posts\My First Blog\git_init.png)</p>
+<p>这表示我们已经成功把当前文件夹初始化，这个文件夹就成为了一个Master主分支！</p>
+<ul>
+<li>克隆一个仓库</li>
+</ul>
+<p><code>git clone /path/to/repository</code>   复制本地仓库到当前文件夹</p>
+<p><code>git clone username@host:/path/to/repository</code> 复制远程仓库到当前文件夹</p>
+<p>这里我们可以复制现成的文件。</p>
+<ul>
+<li>文件的操作</li>
+</ul>
+<p>![](D:\Myblog\source_posts\My First Blog\3.png)</p>
+<p>从图中我们发现，实际文件不一定是归Git管的。</p>
+<p>那什么又叫暂存区呢？下面我们马上就能知道。</p>
+<p>现在我们尝试将一个文件添加到Git的管理体系中去。</p>
+<p>当前我的文件夹下有三个自己的文件。我尝试将Hello.txt归入Git的管理</p>
+<p>![](D:\Myblog\source_posts\My First Blog\git_add.png)</p>
+<p>如图，我们用<code>$ git add Hello.txt</code>尝试将文件加入当前分支中。随后使用<code>$ git status</code>查看当前分支状态。</p>
+<p>Git显示的这些信息是什么意思呢？为什么我的文件还没有被提交呢？(No commits yet)</p>
+<p>刚刚我们使用了 add 操作，我们的Hello.txt 被放到了一个<strong>缓存</strong>区。我们还需要 commit 操作，才能真正把文件放到当前分支下。</p>
+<p>为什么要先放入<strong>缓存</strong>区呢？是防止操作失误。此处Git还为我们提供了撤销方案：<code>Git rm --cached &lt;file&gt;</code></p>
+<p>Cache 表示缓存， rm表示remove.</p>
+<p>如果想要撤销，我们输入 <code>$ git rm --cached Hello.txt</code> 即可</p>
+<p>但是我们当然想提交啦！所以使用<br>&#96;&#96;</p>
 <h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><h3 id="Markdown-Pro-激活"><a href="#Markdown-Pro-激活" class="headerlink" title="Markdown Pro 激活"></a>Markdown Pro 激活</h3><p>第一次进入Markdown，它会让用户激活专业版。我们可以<del>白嫖</del></p>
 <blockquote>
 <p>注册(Email)：</p>
