@@ -371,8 +371,8 @@ class safearay
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">
-                                <span class="chip bg-color">奇思妙想</span>
+                            <a href="/tags/C-%E8%AF%AD%E6%B3%95/">
+                                <span class="chip bg-color">C++ 语法</span>
                             </a>
                         
                     </div>
@@ -460,7 +460,7 @@ class safearay
 <span class="token punctuation">&#125;</span>myout<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <p>在此先感谢xzy的鼎力相助！</p>
-<p>首先我们理解 <code>&amp;</code> 是什么意思。</p>
+<p><strong>1. 这里的 <code>&amp;</code> 是什么作用?</strong></p>
 <p>学习过指针的同学知道，我们定义一个指针ptr，里面需要存储的是一个地址。我们使用的方法是：<br><code>int a=0, *ptr=&amp;a;</code></p>
 <p><code>*ptr</code>表示定义了一个指针变量，<code>&amp;a</code> 表示取变量 <code>a</code> 的地址。比如0x61fe0c2，0x表示十六进制，整体表示一个32位地址。</p>
 <p>但是此处的&amp;用法肯定和上面不同：一个operator 能有什么地址？</p>
@@ -483,55 +483,55 @@ class safearay
 <pre class="line-numbers language-none"><code class="language-none">int a&#x3D;0; int *p &#x3D; &amp;a; int&amp; b&#x3D;a;
    cout&lt;&lt;&amp;b&lt;&lt;&#39; &#39;&lt;&lt;&amp;a&lt;&lt;&#39; &#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>输出： <code>0x61fe0c 0x61fe0c</code></p>
-<p>如果能理解引用，我们再回过头看重载运算符。</p>
-<pre class="line-numbers language-none"><code class="language-none">class node&#123;
-	public:	
-	int arr[10];
-	int&amp; operator[](int i)
-	&#123;
-		...	
-		return arr[i];
-	&#125;
-&#125;X;
-int main()
-&#123;
-	int a&#x3D;X[1]+X[2];
-	X[1]&#x3D;4;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>2. 如果能理解引用，我们再回过头看重载运算符。</strong></p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">node</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span><span class="token operator">:</span>	
+	<span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">int</span><span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>	
+		<span class="token keyword">return</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>X<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> a<span class="token operator">=</span>X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>X<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们理解一下这里main里的语句。</p>
 <p><code>a=x[1]+x[2]</code>,<code>[]</code>已经被重载了，所以程序会返回<code>arr[1]</code>和<code>arr[2]</code>。<br><code>a=X.arr[1]+X.arr[2]</code>,没问题。</p>
 <p><code>x[1]=4;</code>当我们执行<code>x[1]</code>这部分时，重载函数就直接返回一个“替身”。这个替身没有名字，替身的主人是<code>X.arr[1]</code>。</p>
 <p>这样一来，等号左边是一个替身，我们让它等于4，就相当于正在操作<code>X.arr[1]=4</code>。</p>
 <p>因此，此处的<code>&amp;</code>能够让我们方便地使用赋值操作。如果缺失了<code>&amp;</code>,无法赋值,甚至编译都无法通过。</p>
-<pre class="line-numbers language-none"><code class="language-none">#include &lt;cstdio&gt;
-using namespace std;
-class node&#123;
-	int arr[10];
-    public:
-    node() 
-    &#123;
-        for (int i&#x3D;0;i&lt;10;i++) arr[i]&#x3D;i;
-    &#125;
-    int&amp; operator[](int i)
-	&#123;
-		return arr[i];
-	&#125;
-&#125;X;
-int main()
-&#123;
-    int a&#x3D;X[1]+X[2];
-    printf(&quot;%d,%d,&quot;,X[1],a);
-	X[1]&#x3D;4;
-    printf(&quot;%d\n&quot;,X[1]);
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">class</span> <span class="token class-name">node</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span><span class="token operator">:</span>
+    <span class="token function">node</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span><span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token punctuation">)</span>
+	<span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>X<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> a<span class="token operator">=</span>X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">+</span>X<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d,%d,"</span><span class="token punctuation">,</span>X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>输出 <code>1,3,4</code></p>
 <p>去掉重载运算符的<code>&amp;</code>，编译器提示：<code>表达式必须是可修改的左值</code></p>
-<p>然后是关于C++的cin,cout的实现方式。</p>
-<p>网上有很多人讨论cin、cout在C++中属于什么成分。这里我们自己实现了myout,可以明显地看出，myout是一个“对象”。 就像上面的变量X一样。</p>
+<p><strong>3. C++的cin,cout的实现方式?</strong></p>
+<p>网上有很多人讨论cin、cout在C++中属于什么成分。它不像函数，用法却神似函数。这里我们自己实现了myout,可以明显地看出，myout是一个“对象”。 就像上面的变量X一样。</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">node</span>
 <span class="token punctuation">&#123;</span>
     <span class="token keyword">public</span><span class="token operator">:</span>
@@ -553,6 +553,14 @@ int main()
 <p><code>myout&lt;&lt;1</code> ，输出了1，并返回了对象<code>myout</code>本身。剩下什么？剩下了<code>myout&lt;&lt;1.5</code>。</p>
 <p>形象地讲，<code>(myout&lt;&lt;1)&lt;&lt;1.5 == myout &lt;&lt; 1.5;</code></p>
 <p>于是，我们又可以调用一遍重载运算符，继续输出1.5！</p>
+<p>那么问题来了：如果我不返回一个“引用”,即<code>const node operator &lt;&lt; (int value) const&#123;...&#125;</code>好像也能实现啊？</p>
+<p>问题在于：如果没有引用，每次返回时，程序都会重新为一个新的对象开辟空间。不管是时间还是空间上，都是一种损耗。</p>
+<p>当类里面封装的内容比较庞大时，比如高精度，这样子做显然是不合适的。</p>
+<p><strong>4. 两个<code>const</code>是什么成分？</strong></p>
+<p>我们知道<code>const int a=0;</code> 此时我们就不能对<code>a</code>进行赋值。</p>
+<p>此处的<code>const</code> 作用相同。为了防止我们对myout中的任何参数进行改变，我们加上了const。</p>
+<p>后面的<code>const</code>则是防止大括号内的<code>*this</code>被改变。</p>
+<p>这就称为“Read Only”.</p>
 
                 
             </div>
@@ -579,7 +587,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/18/C-%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E7%90%86%E8%A7%A3/">http://example.com/2022/10/18/C-%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E7%90%86%E8%A7%A3/</a>
+                    <a href="http://example.com/2022/10/18/C++%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">http://example.com/2022/10/18/C++%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -617,8 +625,8 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">
-                                    <span class="chip bg-color">奇思妙想</span>
+                                <a href="/tags/C-%E8%AF%AD%E6%B3%95/">
+                                    <span class="chip bg-color">C++ 语法</span>
                                 </a>
                             
                         </div>
@@ -702,7 +710,7 @@ int main()
                 <i class="far fa-dot-circle"></i>&nbsp;Current
             </div>
             <div class="card">
-                <a href="/2022/10/18/C-%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6%E7%90%86%E8%A7%A3/">
+                <a href="/2022/10/18/C++%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">
                     <div class="card-image">
                         
                         
@@ -733,8 +741,8 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/">
-                        <span class="chip bg-color">奇思妙想</span>
+                    <a href="/tags/C-%E8%AF%AD%E6%B3%95/">
+                        <span class="chip bg-color">C++ 语法</span>
                     </a>
                     
                 </div>
