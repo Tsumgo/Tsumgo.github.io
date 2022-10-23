@@ -505,7 +505,7 @@ tags: New Gadgets
 <ol start="4">
 <li>踩坑记录</li>
 </ol>
-<p>markdown引用图片时，文件路径中不能有空格！</p>
+<p>markdown引用图片时，文件路径中不能有空格或者中文！</p>
 <p>例如 ![](.&#x2F;My First Blog&#x2F;1.png) 就不能正常引用图片。 </p>
 <h2 id="next-主题"><a href="#next-主题" class="headerlink" title="next 主题"></a>next 主题</h2><h3 id="安装Hexo-Next-主题"><a href="#安装Hexo-Next-主题" class="headerlink" title="安装Hexo Next 主题"></a>安装Hexo Next 主题</h3><p>如果你正在使用hexo 5.0及以上版本，可以使用以下命令安装：</p>
 <pre class="line-numbers language-none"><code class="language-none">$ cd your_site_directory
@@ -547,7 +547,7 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/15/My-First-Blog/">http://example.com/2022/10/15/My-First-Blog/</a>
+                    <a href="https://tsumgo.github.io/2022/10/15/My-First-Blog/">https://tsumgo.github.io/2022/10/15/My-First-Blog/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -979,6 +979,13 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
 
 
 
+    <!-- <a href="weixin://contacts/profile/jianhzijin">别人能看到的链接文字</a> -->
+    <a href="weixin://contacts/profile/jianhzijin" class="tooltipped" target="_blank" data-tooltip="微信联系我" data-position="top" data-delay="50">
+        <i class="fa-brands fa-weixin"></i>
+    </a>
+
+
+
 
 
     <a href="https://www.zhihu.com/people/fei-xiang-de-tu-dou-21-85" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/fei-xiang-de-tu-dou-21-85" data-position="top" data-delay="50">
@@ -986,10 +993,6 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
     </a>
 
 
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
 
 </div>
     </div>
