@@ -361,16 +361,21 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/New-Gadgets/">
-                                <span class="chip bg-color">New Gadgets</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/New-Gadgets/" class="post-category">
+                                New Gadgets
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -446,34 +451,36 @@
 </ul>
 <p><code>git init</code></p>
 <p>完成操作后，我们会发现路径的最后多出一个 <em><strong>(master)</strong></em></p>
-<p><img src="/2022/10/15/My-First-Blog/git_init.png"> </p>
+<p><img src="/2022/10/15/my-first-blog/git_init.png"> </p>
 <p>这表示我们已经成功把当前文件夹初始化，这个文件夹就成为了一个Master主分支！</p>
 <ul>
 <li>克隆一个仓库</li>
 </ul>
 <p><code>git clone /path/to/repository</code>   复制本地仓库到当前文件夹</p>
 <p><code>git clone username@host:/path/to/repository</code> 复制远程仓库到当前文件夹</p>
-<p>这里我们可以复制现成的文件。</p>
+<p>这样子我们就能复制一个已经存在的仓库到本地文件夹。</p>
 <ul>
 <li>文件的操作</li>
 </ul>
-<p><img src="/2022/10/15/My-First-Blog/.%5CMy_First_Blog%5C3.png"></p>
-<p>从图中我们发现，实际文件不一定是归Git管的。</p>
+<p><img src="/2022/10/15/my-first-blog/.%5CMy_First_Blog%5C3.png"></p>
+<p>从图中我们发现，有些文件不是归Git管的。</p>
 <p>那什么又叫暂存区呢？下面我们马上就能知道。</p>
 <p>现在我们尝试将一个文件添加到Git的管理体系中去。</p>
 <p>当前我的文件夹下有三个自己的文件。我尝试将Hello.txt归入Git的管理</p>
-<p><img src="/2022/10/15/My-First-Blog/.%5CMy_First_Blog%5Cgit_add.png"></p>
+<p><img src="/2022/10/15/my-first-blog/.%5CMy_First_Blog%5Cgit_add.png"></p>
 <p>如图，我们用<code>$ git add Hello.txt</code>尝试将文件加入当前分支中。随后使用<code>$ git status</code>查看当前分支状态。</p>
 <p>Git显示的这些信息是什么意思呢？为什么我的文件还没有被提交呢？(No commits yet)</p>
 <p>刚刚我们使用了 add 操作，我们的Hello.txt 被放到了一个<strong>缓存</strong>区。我们还需要 commit 操作，才能真正把文件放到当前分支下。</p>
-<p>为什么要先放入<strong>缓存</strong>区呢？是防止操作失误。此处Git还为我们提供了撤销方案：<code>Git rm --cached &lt;file&gt;</code></p>
+<p>为了防止操作失误，Git把文件先放入<strong>缓存</strong>区。因此Git还为我们提供了撤销方案：<code>Git rm --cached &lt;file&gt;</code></p>
 <p>Cache 表示缓存， rm表示remove.</p>
-<p>如果想要撤销，我们输入 <code>$ git rm --cached Hello.txt</code> 即可</p>
+<p>例如，我们输入：</p>
+<p><code>$ git rm --cached Hello.txt</code>即可撤销刚才的操作。</p>
 <p>但是我们当然想提交啦！所以使用:</p>
-<p><code>git commit -m &quot;代码提交信息&quot;</code></p>
+<p><code>git commit -m &quot;代码提交信息&quot;</code>来完成整个提交过程。</p>
 <p><strong>-m 表示message，</strong> 引号内可以任意填写，用来提醒自己提交了什么。</p>
-<p>ok，现在我们使用git status 查看当前文件夹状态。<br>可以发现，没有文件在缓冲区，有两个文件还没有被Git追踪。</p>
-<p><img src="/2022/10/15/My-First-Blog/.%5CMy_First_Blog%5Cgit%E6%8F%90%E4%BA%A4%E6%88%90%E5%8A%9F"></p>
+<p>ok，现在我们使用<code>git status</code> 查看当前文件夹状态。<br>可以发现，没有文件在缓冲区，有两个文件还没有被Git追踪。</p>
+<p><img src="/2022/10/15/my-first-blog/.%5CMy_First_Blog%5Cgit_commit_suc.png"></p>
+<p>现在，你的改动已经提交到了<code>Head</code>，也就是Git的管理范围之下。但是还没到你的<strong>远端仓库</strong>。</p>
 <h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><ol>
 <li><strong>Markdown Pro 激活</strong></li>
 </ol>
@@ -499,7 +506,7 @@ layout:
   - default_layout
 title: My First Blog
 date: 2022-10-15 22:28:09
-tags: New Gadgets
+categories: New Gadgets
 ---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>它用于描述文档的几个基本属性。</p>
 <ol start="4">
@@ -507,6 +514,7 @@ tags: New Gadgets
 </ol>
 <p>markdown引用图片时，文件路径中不能有空格或者中文！</p>
 <p>例如 ![](.&#x2F;My First Blog&#x2F;1.png) 就不能正常引用图片。 </p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><code>npm install hexo-cli -g</code></p>
 <h2 id="next-主题"><a href="#next-主题" class="headerlink" title="next 主题"></a>next 主题</h2><h3 id="安装Hexo-Next-主题"><a href="#安装Hexo-Next-主题" class="headerlink" title="安装Hexo Next 主题"></a>安装Hexo Next 主题</h3><p>如果你正在使用hexo 5.0及以上版本，可以使用以下命令安装：</p>
 <pre class="line-numbers language-none"><code class="language-none">$ cd your_site_directory
 $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -515,12 +523,12 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
 <p><em>cd 表示移动到当前目录下的一个文件夹，这里移动到博客根目录即可。</em></p>
 </blockquote>
 <p>下载好了next主题并部署了网站，打开<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 却发现呈现出一堆无法看懂的文字。</p>
-<p><img src="/2022/10/15/My-First-Blog/1.png"></p>
+<p><img src="/2022/10/15/my-first-blog/1.png"></p>
 <p>这是因为缺少了swig组件。这个组件干啥用，为啥会缺少，笔者暂时未去深究。</p>
 <p>只需在Git中输入：</p>
 <p><code>npm i hexo-renderer-swig</code></p>
 <p>即可安装。随后我们重新加载网页，就能看到成型的博客了。</p>
-<p><img src="/2022/10/15/My-First-Blog/2.png" title="Next模板"></p>
+<p><img src="/2022/10/15/my-first-blog/2.png" title="Next模板"></p>
 
                 
             </div>
@@ -547,7 +555,7 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tsumgo.github.io/2022/10/15/My-First-Blog/">https://tsumgo.github.io/2022/10/15/My-First-Blog/</a>
+                    <a href="https://tsumgo.github.io/2022/10/15/my-first-blog/">https://tsumgo.github.io/2022/10/15/my-first-blog/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -584,11 +592,7 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/New-Gadgets/">
-                                    <span class="chip bg-color">New Gadgets</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -669,7 +673,7 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2022/10/18/C++%E9%87%8D%E8%BD%BD%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                <a href="/2022/10/18/c-chong-zai-yun-suan-fu/">
                     <div class="card-image">
                         
                         
@@ -690,8 +694,12 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jzj
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -735,8 +743,12 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Jzj
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/New-Gadgets/" class="post-category">
+                                    New Gadgets
+                                </a>
+                            
                             
                         </span>
                     </div>
