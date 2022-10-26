@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="PTA, Tsum&#39;s Blog">
-    <meta name="description" content="7-15 打印菱形图案
-#include &amp;lt;cstdio&gt;
-using namespace std;
-void pt(int x,int y)
-&amp;#123;
-    y/=2;
-    for (int i=1;i&amp;lt;=y-x/2">
+    <meta name="description" content="7-1 
+#include&amp;lt;stdio.h&amp;gt;
+int main()
+&amp;#123;  int n,i,sum,j;
+sum&amp;#x3D;0;
+ scanf(&amp;quot;%d&amp;quot;,&amp;amp;n);
+ while(n&amp;gt;0)">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -424,7 +424,273 @@ void pt(int x,int y)
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>7-15 打印菱形图案</p>
+                <p>7-1 </p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()
+&#123;  int n,i,sum,j;
+sum&#x3D;0;
+ scanf(&quot;%d&quot;,&amp;n);
+ while(n&gt;0)&#123;
+     if(n%2!&#x3D;0)
+  &#123;sum&#x3D;sum+n;&#125;
+     scanf(&quot;%d&quot;,&amp;n);
+ &#125;
+ printf(&quot;%d&quot;,sum);
+ return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>7-2 求给定精度的简单交错序列部分和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int main()&#123;
+    int flag;
+    double d,i,sum,eps;
+    sum&#x3D;0.0;
+    i&#x3D;1.0;
+    flag&#x3D;1;
+    d&#x3D;1;
+    scanf(&quot;%lf&quot;,&amp;eps);
+    do&#123;
+        i &#x3D; flag*1&#x2F;d;
+        sum&#x3D;sum+i;
+        flag&#x3D;-flag;
+        d&#x3D;d+3;
+    &#125;while(fabs(i)&gt;eps);
+        printf(&quot;sum &#x3D; %.6lf&quot;,sum);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>7-3 统计数字字符和空格</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">int main()
+&#123;
+ int blank,digit,other;
+ blank&#x3D;other&#x3D;digit&#x3D;0;
+ char ch;
+ while(ch!&#x3D;&#39;\n&#39;)
+ &#123;
+ ch&#x3D;getchar();
+   switch(ch)
+   &#123;  
+   case &#39; &#39;: case &#39;\n&#39;:blank++;break;
+   case &#39;0&#39;: case &#39;1&#39;: case &#39;2&#39;: case &#39;3&#39;: case&#39;4&#39;: case&#39;5&#39;:
+   case &#39;6&#39;: case &#39;7&#39;: case &#39;8&#39;: case &#39;9&#39;:digit++;break;
+   default:other++;break;
+   &#125;
+&#125;
+ blank&#x3D;blank-1;
+ printf(&quot;blank &#x3D; %d, digit &#x3D; %d, other &#x3D; %d&quot;,blank,digit,other);
+ return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-4 求整数的位数及各位数字之和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int main()&#123;
+    int n,i,t,count,sum;
+    count &#x3D;0;
+    scanf(&quot;%d&quot;,&amp;n);
+    t&#x3D;n;
+    if(n&lt;&#x3D;pow(10,9))&#123;
+    do&#123;count++;
+       i&#x3D;t%10;
+       t&#x3D;t&#x2F;10;
+       sum&#x3D;sum+i;
+      &#125;while(t!&#x3D;0);
+    printf(&quot;%d %d&quot;,count,sum);&#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-5 找出最小值</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()&#123;
+    int n,i,s,min,t;
+    scanf(&quot;%d&quot;,&amp;n);
+    scanf(&quot;%d&quot;,&amp;s);
+    min &#x3D;s;
+    for(i&#x3D;2;i&lt;&#x3D;n;i++)&#123;
+        scanf(&quot;%d&quot;,&amp;s);
+        if(min&gt;&#x3D;s)&#123;min &#x3D; s;&#125;
+       &#125;
+   printf(&quot;min &#x3D; %d&quot;,min);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-6 统计素数并求和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()&#123;
+    int i,m,n,j,count,sum,k;
+    sum&#x3D;0;
+    count&#x3D;0;
+    scanf(&quot;%d %d&quot;,&amp;m,&amp;n);
+    for (i&#x3D;m;i&lt;&#x3D;n;i++)
+ &#123;
+        for(j&#x3D;2;j&lt;&#x3D;i;j++)&#123;
+        if(i%j&#x3D;&#x3D;0) 
+        break;&#125;
+  if(i&#x3D;&#x3D;j)&#123;count++;sum&#x3D;sum+i;
+        &#125;&#125;
+    printf(&quot;%d %d&quot;,count,sum);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-7 特殊a串数列求和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int main()&#123;
+    int s,a,n,i,j;
+    s&#x3D;0;
+    scanf(&quot;%d%d&quot;,&amp;a,&amp;n);
+    for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;for(j&#x3D;1;j&lt;&#x3D;i;j++)&#123;
+     s&#x3D;s+pow(10,j-1)*a;&#125;
+    &#125;printf(&quot;s &#x3D; %d&quot;,s);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-8 猜数字游戏</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+int main()&#123;   
+    int r, n, x, i; 
+    scanf(&quot;%d %d&quot;, &amp;r,&amp;n);
+    i&#x3D;0;
+    while(1)&#123;  
+     scanf(&quot;%d&quot;, &amp;x);
+    if(x&lt;0)&#123;
+    i--;
+     break;&#125;
+    i++;
+    if(x&gt;r)&#123;
+            printf(&quot;Too big\n&quot;);
+        &#125;else if(x&lt;r)&#123;
+            printf(&quot;Too small\n&quot;);
+        &#125;else&#123;
+            break;
+        &#125;
+    &#125;
+    if(i&lt;0 ||i&gt;n)&#123; 
+        printf(&quot;Game Over\n&quot;);
+    &#125;else if(i&#x3D;&#x3D;1)&#123;
+        printf(&quot;Bingo!&quot;);
+    &#125;else if(i&lt;&#x3D;3)&#123;
+        printf(&quot;Lucky You!&quot;);
+    &#125;else if(i&lt;&#x3D;n)&#123;
+        printf(&quot;Good Guess!&quot;);
+    &#125;
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-9 兔子繁衍问题</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+ int main()
+&#123;  
+  int N,a&#x3D;2,b&#x3D;0,c&#x3D;0,i&#x3D;1;
+     scanf(&quot;%d&quot;,&amp;N);
+    if(N&gt;1)
+   &#123;
+     while(c&lt;2*N)
+       &#123; c&#x3D;a+b;
+         b&#x3D;a;
+         a&#x3D;c;
+         i++;
+       &#125;
+    printf(&quot;%d&quot;,i);
+     &#125;
+     else printf(&quot;1&quot;);
+     
+ return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-10 高空坠球</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C"># include&lt;stdio.h&gt;
+int main()&#123;
+    int i,h,n;
+    double s&#x3D;0.0,z&#x3D;0.0,k&#x3D;2.0;
+    scanf(&quot;%d %d&quot;,&amp;h,&amp;n);
+    if(n&gt;0) &#123;
+     s&#x3D;h;
+    for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+    s&#x3D;s+2.0*z;
+    z&#x3D;h&#x2F;k;
+    k&#x3D;k*2; 
+        &#125;
+    &#125;
+  printf(&quot;%0.1f %0.1f&quot;,s,z);
+  return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-11 求分数序列前N项和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()&#123;
+    int N,k;
+    scanf(&quot;%d&quot;, &amp;N);
+    double i,j,sum;
+    i&#x3D;1.0;
+    j&#x3D;2.0;
+    sum&#x3D;0.0;
+    k&#x3D;1;
+    for(k&#x3D;1;k&lt;&#x3D;N;k++)&#123;
+    sum+&#x3D;j&#x2F;i;
+    double x&#x3D;i;
+    i&#x3D;j;
+    j&#x3D;j+x;
+    &#125;
+    printf(&quot;%.2f&quot;, sum);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-12 求e的近似值</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+double facter(int i)
+&#123;
+    int j&#x3D;1;
+    double sum&#x3D;1;
+    for(j&#x3D;1;j&lt;&#x3D;i;j++)
+    sum&#x3D;sum*j;
+    return sum;
+&#125;
+int main()
+&#123;    
+    int n;
+    double sum&#x3D;1.0,a;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i&#x3D;1;i&lt;&#x3D;n;i++)
+    &#123;
+        a&#x3D;1.0&#x2F;facter(i);
+        sum&#x3D;sum+a;
+    &#125;printf(&quot;%.8lf&quot;,sum);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-13 换硬币</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()&#123;
+    int t,a,b,c,d,x,count;
+    scanf(&quot;%d&quot;,&amp;x);
+    count &#x3D;0;
+    for(a&#x3D;x&#x2F;5;a&gt;0;a--)&#123;
+        for(b&#x3D;x&#x2F;2;b&gt;0;b--)&#123;
+            for(c&#x3D;x;c&gt;0;c--)&#123;
+                if(5*a+2*b+c&#x3D;&#x3D;x)&#123;
+                    count++;
+                        t&#x3D;a+b+c;
+                        printf(&quot;fen5:%d, fen2:%d, fen1:%d, total:%d\n&quot;,a,b,c,t);
+                        t&#x3D;0;
+                &#125;
+            &#125;
+                
+        &#125;
+            
+    &#125;
+    printf(&quot;count &#x3D; %d&quot;,count);
+ return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-14 输出三角形字符阵列</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()
+&#123;
+    int a,c,x,i,n;
+    char m&#x3D;&#39;A&#39;;
+    scanf(&quot;%d&quot;,&amp;a);
+    x&#x3D;a;
+    for(i&#x3D;1;i&lt;&#x3D;a;i++)
+    &#123;for(c&#x3D;1;c&lt;&#x3D;x;c++)
+        &#123;
+            printf(&quot;%c &quot;,m);
+            m++;
+        &#125;
+        x&#x3D;x-1;
+        printf(&quot;\n&quot;);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-15 打印菱形图案</p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token keyword">void</span> <span class="token function">pt</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">)</span>
@@ -482,8 +748,138 @@ void pt(int x,int y)
     <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>f<span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"None"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-18 找完数</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;cstdio&gt;
+using namespace std;
+int n,m,pri[1000];
+int check(int x)
+&#123;
+    int tmp&#x3D;0; pri[0]&#x3D;0;
+    for (int i&#x3D;1;i&lt;&#x3D;x&#x2F;2;i++) if (x%i&#x3D;&#x3D;0)&#123;
+        tmp+&#x3D;i, pri[++pri[0]]&#x3D;i;
+    &#125;
+    if (tmp&#x3D;&#x3D;x) 
+    &#123;
+        printf(&quot;%d &#x3D; &quot;,x);
+        for (int i&#x3D;1;i&lt;pri[0];i++) printf(&quot;%d + &quot;,pri[i]);
+        printf(&quot;%d\n&quot;,pri[pri[0]]);
+        return 1;
+    &#125; 
+    return 0;
+&#125;
+int main()&#123;
+    scanf(&quot;%d%d&quot;,&amp;m,&amp;n);
+    int f&#x3D;0;
+    for (int i&#x3D;m;i&lt;&#x3D;n;i++)
+    &#123;
+        f|&#x3D;check(i);
+    &#125;
+    if (!f) puts(&quot;None&quot;);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<p>1-19 求幂级数展开的部分和</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int main()&#123;
+    double item,sum,x,k;
+    int count;
+    sum&#x3D;0;item&#x3D;1.0;
+    count&#x3D;0;
+    long double q&#x3D;1;
+    sum&#x3D;1;
+    scanf(&quot;%lf&quot;,&amp;x);
+    while(item&gt;0.00001)&#123;
+        count++;
+        q&#x3D;q*count;
+        item&#x3D;(pow(x,count)*1.0)&#x2F;q;
+  sum&#x3D;sum+item;&#125;
+        sum&#x3D;sum+item;
+        printf(&quot;%.4f&quot;,sum);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-20 验证“哥德巴赫猜想”</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+int prime(int x)  ;
+int main()
+&#123;
+    int n, i;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i&#x3D;2; i&lt;&#x3D;n&#x2F;2;i++)
+    &#123;
+        if(prime(i)&amp;&amp;prime(n - i))
+       &#123;
+            printf( &quot;%d &#x3D; %d + %d\n&quot;, n, i, n - i );
+            break;
+        &#125;
+    &#125;
+    return 0;
+&#125; 
+int prime(int x) 
+&#123;
+   int prime &#x3D; 1;
+   int i;
+    if(x%2&#x3D;&#x3D;0&amp;&amp;x!&#x3D;2)prime&#x3D; 0;
+    else 
+    &#123;
+        for(i&#x3D;3;i&lt;&#x3D;sqrt(x);i+&#x3D;2)
+        &#123;
+           if(x%i &#x3D;&#x3D;0)&#123;
+               prime&#x3D;0;
+                break;
+             &#125;
+        &#125;
+    &#125;
+    return prime;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-21 水仙花数</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int pow(int m,int n)&#123;
+    int j,s&#x3D;1;
+    for(j&#x3D;1;j&lt;&#x3D;n;j++)&#123;
+        s&#x3D;m*s;
+    &#125;
+    return s;
+&#125;
 
+int main()
+&#123;
+    int n,m; 
+    scanf(&quot;%d&quot;,&amp;n);
+    int x &#x3D; 0;
+    for(x &#x3D; pow(10,n-1); x &lt; (pow(10,n)); x++)
+    &#123;
+        int b &#x3D; x;
+        int sum &#x3D; 0, a &#x3D; 0, i;
+       for(i &#x3D; 1; i &lt;&#x3D; n; i++)
+       &#123;
+            a &#x3D; b%10;
+            b &#x3D;b&#x2F; 10;
+            sum &#x3D;sum+pow(a,n);
+        &#125;
+        if(sum &#x3D;&#x3D; x) 
+        &#123;
+            printf(&quot;%d\n&quot;,x);
+        &#125;
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>7-22 打印九九口诀表</p>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">#include&lt;stdio.h&gt;
+int main()&#123;
+    int i ,j ,n;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;
+        for(j&#x3D;1;j&lt;&#x3D;i;j++)&#123;
+              printf(&quot;%d*%d&#x3D;%-4d&quot;,j,i,j*i);
+              
+        &#125;printf(&quot;\n&quot;); 
+        
+        
+    &#125;
+return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
