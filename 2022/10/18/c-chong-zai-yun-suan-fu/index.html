@@ -466,15 +466,15 @@ class safearay
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>myout<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span>myout<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <p>在此先感谢xzy的鼎力相助！</p>
 <p><strong>1. 这里的 <code>&amp;</code> 是什么作用?</strong></p>
 <p>学习过指针的同学知道，我们定义一个指针ptr，里面需要存储的是一个地址。我们使用的方法是：<br><code>int a=0, *ptr=&amp;a;</code></p>
 <p><code>*ptr</code>表示定义了一个指针变量，<code>&amp;a</code> 表示取变量 <code>a</code> 的地址。比如0x61fe0c2，0x表示十六进制，整体表示一个32位地址。</p>
 <p>但是此处的&amp;用法肯定和上面不同：一个operator 能有什么地址？</p>
-<p>不要忘记，我们还有一个地方用到了<code>&amp;</code>。</p>
-<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
+<p>不要忘记，我们还有一个地方用到了<code>&amp;</code>。<br><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span>
 <span class="token punctuation">&#123;</span>
 	<span class="token keyword">int</span> tmp<span class="token punctuation">;</span>
 	tmp<span class="token operator">=</span>a<span class="token punctuation">,</span> a<span class="token operator">=</span>b<span class="token punctuation">,</span> b<span class="token operator">=</span>tmp<span class="token punctuation">;</span>
@@ -483,15 +483,12 @@ class safearay
 <span class="token punctuation">&#123;</span>	
 	<span class="token keyword">int</span> x<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>y<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
 	<span class="token function">swap</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
 <p>在这里，我们交换了<code>x</code>和<code>y</code>。<code>swap</code>函数的参数为两个“引用值”。<br>将变量<code>x</code>,<code>y</code>传递至<code>swap</code>函数后，相当于执行了操作：<br><code>int &amp;a=x, &amp;b=y;</code></p>
 <p>此处, <code>a</code>和<code>b</code>相当于<code>x</code>和<code>y</code>的别名。我改变了<code>a</code>与<code>b</code>，同时也改变了<code>x</code>与<code>y</code>。因而，我们能在函数中实现<code>x</code>和<code>y</code>的交换。</p>
 <p>如果我们输出<code>a</code>和<code>x</code>的地址，我们能发现，他们在内存中的地址是一样的！</p>
-<p>也就是说，在内存中，程序不会为a新分配一个空间。</p>
-<pre class="line-numbers language-none"><code class="language-none">int a&#x3D;0; int *p &#x3D; &amp;a; int&amp; b&#x3D;a;
-   cout&lt;&lt;&amp;b&lt;&lt;&#39; &#39;&lt;&lt;&amp;a&lt;&lt;&#39; &#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>输出： <code>0x61fe0c 0x61fe0c</code></p>
+<p>也就是说，在内存中，程序不会为a新分配一个空间。<br><pre class="line-numbers language-none"><code class="language-none">int a&#x3D;0; int *p &#x3D; &amp;a; int&amp; b&#x3D;a;
+   cout&lt;&lt;&amp;b&lt;&lt;&#39; &#39;&lt;&lt;&amp;a&lt;&lt;&#39; &#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><br>输出： <code>0x61fe0c 0x61fe0c</code></p>
 <p><strong>2. 如果能理解引用，我们再回过头看重载运算符。</strong></p>
 <pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token keyword">class</span> <span class="token class-name">node</span><span class="token punctuation">&#123;</span>
 	<span class="token keyword">public</span><span class="token operator">:</span>	
@@ -508,7 +505,6 @@ class safearay
 	X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">4</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>我们理解一下这里main里的语句。</p>
 <p><code>a=x[1]+x[2]</code>,<code>[]</code>已经被重载了，所以程序会返回<code>arr[1]</code>和<code>arr[2]</code>。<br><code>a=X.arr[1]+X.arr[2]</code>,没问题。</p>
 <p><code>x[1]=4;</code>当我们执行<code>x[1]</code>这部分时，重载函数就直接返回一个“替身”。这个替身没有名字，替身的主人是<code>X.arr[1]</code>。</p>
@@ -536,7 +532,6 @@ class safearay
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>X<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>输出 <code>1,3,4</code></p>
 <p>去掉重载运算符的<code>&amp;</code>，编译器提示：<code>表达式必须是可修改的左值</code></p>
 <p><strong>3. C++的cin,cout的实现方式?</strong></p>
@@ -555,7 +550,6 @@ class safearay
         <span class="token keyword">return</span> <span class="token operator">*</span><span class="token keyword">this</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span>myout<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>通过重载运算符，我们能更方便地输出各种数据类型，而不用写<code>%d</code>,<code>%lf</code>等等标识符。例如：<code>myout&lt;&lt;1&lt;&lt;1.5;</code></p>
 <p>我们可以尝试模拟一下这里的过程。</p>
 <p>首先，执行<code>myout&lt;&lt;1</code>。不重载的话，<code>&lt;&lt;</code>是位运算的意思，即<code>myout*2</code>。不过我们既然重载了运算符，就按我们写的方式来。</p>

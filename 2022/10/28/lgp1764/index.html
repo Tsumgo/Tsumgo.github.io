@@ -4,8 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="My First Blog, Tsum&#39;s Blog">
-    <meta name="description" content="Hi,This is my very first blog, which has witnessed my arduous journey though the internet.学习一个新技能的过程中，会遇到很多不可预料的困难。有些困难通">
+    <meta name="keywords" content="LGP1764, Tsum&#39;s Blog">
+    <meta name="description" content="翻转游戏 (加强版)拿到题目没有思路，首先手玩一下。但似乎找不到一种合适的决策方案。
+可以想到的是：
+
+棋盘上每个位置只有两种状态，每个位置只能有两种操作（翻转/不翻转） 
+操作的顺序不改变结果 
+
+那么最直接的思路就是爆搜了。
+具体思路：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>My First Blog | Tsum&#39;s Blog</title>
+    <title>LGP1764 | Tsum&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -334,12 +341,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">My First Blog</h1>
+                    <h1 class="description center-align post-title">LGP1764</h1>
                 </div>
             </div>
         </div>
@@ -361,9 +368,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                <span class="chip bg-color">搜索</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -371,8 +382,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/New-Gadgets/" class="post-category">
-                                New Gadgets
+                            <a href="/categories/%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83/" class="post-category">
+                                康复训练
                             </a>
                         
                     </div>
@@ -384,7 +395,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2022-10-15
+                    2022-10-28
                 </div>
                 
 
@@ -427,111 +438,80 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet"><a href="#Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet" class="headerlink" title="Hi,This is my very first blog, which has witnessed my arduous journey though the internet."></a>Hi,This is my very first blog, which has witnessed my arduous journey though the internet.</h2><p>学习一个新技能的过程中，会遇到很多不可预料的困难。有些困难通过自我摸索可以解决，我们也能在这个过程中收获经验。有些则由于知识落差太大，我们往往会发现毫无头绪。这时候，我们就需要一个学习线索。千里之行始于足下，我希望能将自己建站的经历记录下来，并为其他人提供一个登高自卑的道路。</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>github</li>
-<li>Git</li>
-<li>Hexo</li>
-</ol>
-<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ul>
-<li>首先我们需要了解github是什么，有什么用，怎么使用。</li>
-</ul>
-<p>为了方便，我们可以直接将github理解为一个<strong>数据中心</strong>，为用户免费提供存放代码、网站等等文件的地方。github网站与Git配套使用，能很方便地<strong>上传本地数据</strong>，并从网站上 <strong>同步数据到本地电脑</strong>。<del>至少比网盘快多了</del></p>
-<p>我们先创建一个属于自己的账号。</p>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
-<li>什么是Git？</li>
-</ul>
-<p>Git  是一个快速、可扩展的 分布式版本控制系统。字面理解，版本控制系统，通过它能方便地管理各种版本的代码、软件。</p>
-<ul>
-<li>Git 的基本操作</li>
-</ul>
-<p>刚进入的时候，Git会要求用户设置名字和Email.</p>
-<ul>
-<li>初始化一个仓库</li>
-</ul>
-<p><code>git init</code></p>
-<p>完成操作后，我们会发现路径的最后多出一个 <strong><em>(master)</em></strong></p>
-<p><img src="/2022/10/15/my-first-blog/git_init.png" alt> </p>
-<p>这表示我们已经成功把当前文件夹初始化，这个文件夹就成为了一个Master主分支！</p>
-<ul>
-<li>克隆一个仓库</li>
-</ul>
-<p><code>git clone /path/to/repository</code>   复制本地仓库到当前文件夹</p>
-<p><code>git clone username@host:/path/to/repository</code> 复制远程仓库到当前文件夹</p>
-<p>这样子我们就能复制一个已经存在的仓库到本地文件夹。</p>
-<ul>
-<li>文件的操作</li>
-</ul>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\3.png" alt></p>
-<p>从图中我们发现，有些文件不是归Git管的。</p>
-<p>那什么又叫暂存区呢？下面我们马上就能知道。</p>
-<p>现在我们尝试将一个文件添加到Git的管理体系中去。</p>
-<p>当前我的文件夹下有三个自己的文件。我尝试将Hello.txt归入Git的管理</p>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\git_add.png" alt></p>
-<p>如图，我们用<code>$ git add Hello.txt</code>尝试将文件加入当前分支中。随后使用<code>$ git status</code>查看当前分支状态。</p>
-<p>Git显示的这些信息是什么意思呢？为什么我的文件还没有被提交呢？(No commits yet)</p>
-<p>刚刚我们使用了 add 操作，我们的Hello.txt 被放到了一个<strong>缓存</strong>区。我们还需要 commit 操作，才能真正把文件放到当前分支下。</p>
-<p>为了防止操作失误，Git把文件先放入<strong>缓存</strong>区。因此Git还为我们提供了撤销方案：<code>Git rm --cached &lt;file&gt;</code></p>
-<p>Cache 表示缓存， rm表示remove.</p>
-<p>例如，我们输入：</p>
-<p><code>$ git rm --cached Hello.txt</code>即可撤销刚才的操作。</p>
-<p>但是我们当然想提交啦！所以使用:</p>
-<p><code>git commit -m &quot;代码提交信息&quot;</code>来完成整个提交过程。</p>
-<p><strong>-m 表示message，</strong> 引号内可以任意填写，用来提醒自己提交了什么。</p>
-<p>ok，现在我们使用<code>git status</code> 查看当前文件夹状态。<br>可以发现，没有文件在缓冲区，有两个文件还没有被Git追踪。</p>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\git_commit_suc.png" alt></p>
-<p>现在，你的改动已经提交到了<code>Head</code>，也就是Git的管理范围之下。但是还没到你的<strong>远端仓库</strong>。</p>
-<h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><ol>
-<li><strong>Markdown Pro 激活</strong></li>
-</ol>
-<p>第一次进入Markdown，它会让用户激活专业版。我们可以<del>白嫖</del></p>
-<blockquote>
-<p>注册(Email)：<code>www.zixue.it</code></p>
-<p>注册码(Key)：<br><code>4vuvQFtGkF0oH7by922v75FtaUGq7niFveCKDxqC2KSqYTfaSGzxzxKQXNhc2BG51N9URrF71PZcBGdVxEm41c/FasBJQybIEYkahzRnjGwhaEocTe2eye6RZpzjaEvoz9fm04e2oyveK5wjXAXVmTRTDnTJvbNG7pEH1y6SC5mgxbhrNQ5/2GyQD7Ml/X2ipVZ7MdQkFdkEiM+H+99/ar0azcwrdQ8s0Zg31kjdcbVsL3DjW2GMlvxsvGpCVjn7savohzdhHq7QjFrl5/C4e6TVsEjaaBSVkAA18ag2Dvx7c2vOf9OlndNZxE8GARRSV2lQdahNKlrKIYK3E3UpgQ==</code></p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.yanshiba.com/2015/04/10/markdownpad%202%20pro%E7%89%88%E6%9C%AC%20%E6%B3%A8%E5%86%8C%E7%A0%81/">注册码来源</a></p>
+                <h2 id="翻转游戏-加强版"><a href="#翻转游戏-加强版" class="headerlink" title="翻转游戏 (加强版)"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1764">翻转游戏 (加强版)</a></h2><p>拿到题目没有思路，首先手玩一下。但似乎找不到一种合适的决策方案。</p>
+<p>可以想到的是：</p>
 <ol>
-<li><strong>基本语法</strong></li>
+<li>棋盘上每个位置只有两种状态，每个位置只能有两种操作（翻转/不翻转） </li>
+<li>操作的顺序不改变结果 </li>
 </ol>
-<p>参考<a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown官方教程</a></p>
-<p>Markdown语法不难，不需要刻意去学习。重要的是<strong>多实践</strong>，才能熟练运用。</p>
-<ol>
-<li><strong>front-matter</strong></li>
-</ol>
-<h4 id="什么是front-matter"><a href="#什么是front-matter" class="headerlink" title="什么是front-matter?"></a>什么是front-matter?</h4><p>在新建的.md文件中，就有这样一段。<br><pre class="line-numbers language-none"><code class="language-none">---
-layout:
-  - default_layout
-title: My First Blog
-date: 2022-10-15 22:28:09
-categories: New Gadgets
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>它用于描述文档的几个基本属性。</p>
-<ol>
-<li>踩坑记录</li>
-</ol>
-<p>markdown引用图片时，文件路径中不能有空格或者中文！</p>
-<p>例如 <img src="/2022/10/15/my-first-blog/1.png" alt> 就不能正常引用图片。 </p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p><code>npm install hexo-cli -g</code></p>
-<h2 id="next-主题"><a href="#next-主题" class="headerlink" title="next 主题"></a>next 主题</h2><h3 id="安装Hexo-Next-主题"><a href="#安装Hexo-Next-主题" class="headerlink" title="安装Hexo Next 主题"></a>安装Hexo Next 主题</h3><p>如果你正在使用hexo 5.0及以上版本，可以使用以下命令安装：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ cd your_site_directory
-$npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<blockquote>
-<p><em>cd 表示移动到当前目录下的一个文件夹，这里移动到博客根目录即可。</em></p>
-</blockquote>
-<p>下载好了next主题并部署了网站，打开<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> 却发现呈现出一堆无法看懂的文字。</p>
-<p><img src="/2022/10/15/my-first-blog/1.png" alt></p>
-<p>这是因为缺少了swig组件。这个组件干啥用，为啥会缺少，笔者暂时未去深究。</p>
-<p>只需在Git中输入：</p>
-<p><code>npm i hexo-renderer-swig</code></p>
-<p>即可安装。随后我们重新加载网页，就能看到成型的博客了。</p>
-<p><img src="/2022/10/15/my-first-blog/2.png" alt title="Next模板"></p>
-<h2 id="其他问题记录"><a href="#其他问题记录" class="headerlink" title="其他问题记录"></a>其他问题记录</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://runninggump.github.io/2018/12/05/%E6%88%90%E5%8A%9F%E8%A7%A3%E5%86%B3%E5%9C%A8hexo%E4%B8%AD%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%9A%84%E9%97%AE%E9%A2%98/">博客无法正常显示数学公式</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://trifond.github.io/2018/12/05/hexo-folder-ignore-case/">Hexo部署到Github后文件夹名大小写引起的问题</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://luckyzmj.cn/posts/1b9a9e28.html">Matery主题代码块出现的各种Bug</a></p>
-</li>
-</ul>
+<p>那么最直接的思路就是爆搜了。</p>
+<p>具体思路：搜索两遍，一遍从0翻转到1，一遍从1翻转到0。<br>对于每个位置，直接决策需不需要翻转。</p>
+<p>时间复杂度 <script type="math/tex">O(2^{n \times n})</script>  得分 30pts</p>
+<pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;cstdio></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token keyword">int</span> dx<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> dy<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">18</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> stk<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">300</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>top<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span> s<span class="token punctuation">[</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">upd</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span><span class="token keyword">int</span> y<span class="token punctuation">,</span><span class="token keyword">int</span> T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">5</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> nx<span class="token operator">=</span>x<span class="token operator">+</span>dx<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> ny<span class="token operator">=</span>y<span class="token operator">+</span>dy<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>nx<span class="token operator">></span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>nx<span class="token operator">&lt;=</span>n<span class="token operator">&amp;&amp;</span>ny<span class="token operator">></span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>ny<span class="token operator">&lt;=</span>n<span class="token punctuation">)</span>
+            a<span class="token punctuation">[</span>nx<span class="token punctuation">]</span><span class="token punctuation">[</span>ny<span class="token punctuation">]</span><span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token operator">^=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">Dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> pos<span class="token punctuation">,</span><span class="token keyword">int</span> res<span class="token punctuation">,</span><span class="token keyword">int</span> T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">bool</span> flg<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> flg<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> flg<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pos<span class="token operator">+</span>res<span class="token operator">-</span><span class="token number">1</span><span class="token operator">></span>n<span class="token operator">*</span>n<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Dfs</span><span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> res<span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x<span class="token operator">=</span><span class="token punctuation">(</span>pos<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> y<span class="token operator">=</span>pos<span class="token operator">-</span><span class="token punctuation">(</span>x<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span>n<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">upd</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>T<span class="token punctuation">)</span><span class="token punctuation">,</span> stk<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token operator">++</span>top<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token operator">=</span>pos<span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Dfs</span><span class="token punctuation">(</span>pos<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span> res<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> T<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span>
+        <span class="token function">upd</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>T<span class="token punctuation">)</span><span class="token punctuation">,</span> top<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token keyword">int</span> T<span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>top<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// for (int i=1;i&lt;=top[T];i++) &#123;</span>
+    <span class="token comment">//     int x=(stk[T][i]-1)/n+1, y=stk[T][i]- (x-1)*n;</span>
+    <span class="token comment">//     printf("(%d,%d)\n",x,y);</span>
+    <span class="token comment">// &#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">&#123;</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%s"</span><span class="token punctuation">,</span>s<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>s<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">==</span><span class="token char">'b'</span><span class="token punctuation">)</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token keyword">else</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+            a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">-</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> ans<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token operator">*</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span>cnt<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+    cnt<span class="token operator">=</span>n<span class="token operator">*</span>n<span class="token operator">-</span>cnt<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token operator">*</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span>cnt<span class="token operator">%</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Dfs</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>i<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span>
+     <span class="token comment">//printf("%d %d\n",top[0],top[1]);</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>top<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span><span class="token string">"Impossible!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">else</span> 
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">></span>top<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token function">print</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当然还有更优秀的算法。</p>
 
                 
             </div>
@@ -558,7 +538,7 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tsumgo.github.io/2022/10/15/my-first-blog/">https://tsumgo.github.io/2022/10/15/my-first-blog/</a>
+                    <a href="https://tsumgo.github.io/2022/10/28/lgp1764/">https://tsumgo.github.io/2022/10/28/lgp1764/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -595,7 +575,11 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                    <span class="chip bg-color">搜索</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -672,17 +656,18 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2022/10/18/c-chong-zai-yun-suan-fu/">
+                <a href="/2022/10/28/lgp1764/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="C++重载运算符">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="LGP1764">
                         
-                        <span class="card-title">C++重载运算符</span>
+                        <span class="card-title">LGP1764</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -692,26 +677,27 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83/" class="post-category">
+                                    康复训练
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C-%E8%AF%AD%E6%B3%95/">
-                        <span class="chip bg-color">C++ 语法</span>
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
                     </a>
                     
                 </div>
@@ -725,13 +711,13 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/15/hello-world/">
+                <a href="/2022/10/23/lgp1966/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="LGP1966">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">LGP1966</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -742,14 +728,14 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/New-Gadgets/" class="post-category">
-                                    New Gadgets
+                            <a href="/categories/%E5%BA%B7%E5%A4%8D%E8%AE%AD%E7%BB%83/" class="post-category">
+                                    康复训练
                                 </a>
                             
                             
@@ -876,6 +862,13 @@ $npm npm install hexo-theme-next<span aria-hidden="true" class="line-numbers-row
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 

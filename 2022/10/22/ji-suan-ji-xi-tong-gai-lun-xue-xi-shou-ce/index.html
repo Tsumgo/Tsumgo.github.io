@@ -442,7 +442,7 @@
 <li><p>ISA结构：可以理解为CPU才能读懂的指令集（Instruction Set Architecture）。不同厂家的CPU所用的ISA不同，指令数目也不尽相同。而汇编语言的每个语句通常与ISA有一对一的关系。换言之，汇编语言是ISA操作码，逻辑和指令的抽象集合。</p>
 </li>
 </ul>
-<p><img src="/2022/10/22/ji-suan-ji-xi-tong-gai-lun-xue-xi-shou-ce/.%5C10-22Computer_Programming_study%5CISA.png"></p>
+<p><img src="/2022/10/22/ji-suan-ji-xi-tong-gai-lun-xue-xi-shou-ce/10-22Computer_Programming_study\ISA.png" alt></p>
 <p>我们知道，<strong>汇编器</strong>(assembler)可以将汇编语言转换成相应的<strong>机器码</strong>（一堆指令集）。它们是一一对应的。而一种CPU只能理解一种机器码，因此不同CPU厂家的汇编语言也会不一样。</p>
 <ul>
 <li>微结构：要想实现ISA中的许多功能，我们需要物理上的硬件帮助我们实现。不同操作（如加法，寻址）有不同的微结构实现方式（ALU，mux等等）。</li>
@@ -464,18 +464,18 @@
 <p><code>10(Oct)=(001010)(Bin)</code></p>
 <p><code>31(Oct)=(011111)(Bin)</code></p>
 <p>因为最高位作符号位用，所以对于一个6bit的带符号数据类型，最大能存储的整数是31。 </p>
-<p>或者理解为：符号位为0时，可以表示0~$$2^3-1$$的数字。</p>
+<p>或者理解为：符号位为0时，可以表示0~<script type="math/tex">2^3-1</script>的数字。</p>
 <p>符号位为1时，表示负数。在计算机中，负数采用“补码”的形式获得。先看如何产生一个负数。</p>
 <blockquote>
-<p>补码，将所有的二进制位取反，最后加1。例如(1101)(Bin) –&gt; (0010)(Bin) –&gt; (0011)(Bin)。 二进制数1101的补码就是0011。</p>
+<p>补码，将所有的二进制位取反，最后加1。例如(1101)(Bin) —&gt; (0010)(Bin) —&gt; (0011)(Bin)。 二进制数1101的补码就是0011。</p>
 </blockquote>
 <p><code>5(Oct)=(000101)(Bin)</code></p>
 <p>那么</p>
 <p><code>-5(Oct)=(111011)(Bin)</code></p>
-<p>同理，<code>10(Oct)=(001010)(Bin)</code> –&gt; <code>-10(Oct)=(110110)(Bin)</code></p>
-<p><code>31(Oct)=(011111)(Bin)</code> –&gt; <code>-31(Oct)=(100001)(Bin)</code></p>
-<p><code>1(Oct)=(000001)(Bin)</code> –&gt; <code>-1(Oct)=(111111)(Bin)</code></p>
-<p><code>0(Oct)=(000000)(Bin)</code> –&gt; <code>-0(Oct)=(000000)(Bin)</code></p>
+<p>同理，<code>10(Oct)=(001010)(Bin)</code> —&gt; <code>-10(Oct)=(110110)(Bin)</code></p>
+<p><code>31(Oct)=(011111)(Bin)</code> —&gt; <code>-31(Oct)=(100001)(Bin)</code></p>
+<p><code>1(Oct)=(000001)(Bin)</code> —&gt; <code>-1(Oct)=(111111)(Bin)</code></p>
+<p><code>0(Oct)=(000000)(Bin)</code> —&gt; <code>-0(Oct)=(000000)(Bin)</code></p>
 <p><code>-32(Oct)=(100000)(Bin)</code></p>
 <blockquote>
 <p>Q ：对<code>000000</code>取反加1，得到的应该是<code>1000000</code>, 为什么答案是<code>000000</code>呢？</p>
@@ -483,7 +483,12 @@
 <p>Q ：用6bit的数据类型没法表示+32，那-32怎么来的呢？</p>
 <p>A ：我们按上述方法列数所有的负数，发现还有一个六位二进制组合没有用到。它就是<code>(100000)(Bin)</code>，我们就人为规定它表示-32。</p>
 </blockquote>
-<p>那我们为什么需要用补码来表示负数呢？</p>
+<p><strong>那我们为什么需要用补码来表示负数呢？</strong></p>
+<p><img src="/2022/10/22/ji-suan-ji-xi-tong-gai-lun-xue-xi-shou-ce/code.png" alt></p>
+<ul>
+<li>浮点型</li>
+</ul>
+<p>计算机不能精确地表示所有的小数。这也是为什么我们经常讲“精度损失”。原因在于，二进制小数只能用<script type="math/tex">2^{-N}</script>的组合来表示小数部分。例如 <code>0.75(Oct)=0.5(Oct)+0.25(Oct)=(0.11)(Bin)</code> 十进制数0.9, 就不能用二进制小数精确表示。</p>
 
                 
             </div>
@@ -816,6 +821,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    });
+</script>
 
 
 
