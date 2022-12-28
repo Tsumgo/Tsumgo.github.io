@@ -1,2 +1,2 @@
 # Tsumgo.github.io
-My Blog
+This is my first blog.
