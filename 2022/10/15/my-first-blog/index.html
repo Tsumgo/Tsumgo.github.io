@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="My First Blog, Tsum&#39;s Blog">
-    <meta name="description" content="Hi,This is my very first blog, which has witnessed my arduous journey though the internet.学习一个新技能的过程中，会遇到很多不可预料的困难。有些困难通">
+    <meta name="description" content="Hi,This is my very first blog, which has witnessed my arduous journey though the internet.搭建自己博客的初衷是为分流面试添砖加瓦。而所有的一切都不是想">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -449,60 +449,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet"><a href="#Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet" class="headerlink" title="Hi,This is my very first blog, which has witnessed my arduous journey though the internet."></a>Hi,This is my very first blog, which has witnessed my arduous journey though the internet.</h2><p>学习一个新技能的过程中，会遇到很多不可预料的困难。有些困难通过自我摸索可以解决，我们也能在这个过程中收获经验。有些则由于知识落差太大，我们往往会发现毫无头绪。这时候，我们就需要一个学习线索。千里之行始于足下，我希望能将自己建站的经历记录下来，并为其他人提供一个登高自卑的道路。</p>
+                <h2 id="Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet"><a href="#Hi-This-is-my-very-first-blog-which-has-witnessed-my-arduous-journey-though-the-internet" class="headerlink" title="Hi,This is my very first blog, which has witnessed my arduous journey though the internet."></a>Hi,This is my very first blog, which has witnessed my arduous journey though the internet.</h2><p>搭建自己博客的初衷是为分流面试添砖加瓦。而所有的一切都不是想象中的那么顺利。作为一个小白，我遇到的很多问题都不能够自己解决，需要投靠搜索引擎寻找那些和我有相同处境的人。</p>
+<p>因此在这篇博客记录下自己踩过的坑，算作对自己成长的记录。</p>
 <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
 <li>github</li>
 <li>Git</li>
 <li>Hexo</li>
 </ol>
-<h2 id="github"><a href="#github" class="headerlink" title="github"></a>github</h2><ul>
-<li>首先我们需要了解github是什么，有什么用，怎么使用。</li>
-</ul>
-<p>为了方便，我们可以直接将github理解为一个<strong>数据中心</strong>，为用户免费提供存放代码、网站等等文件的地方。github网站与Git配套使用，能很方便地<strong>上传本地数据</strong>，并从网站上 <strong>同步数据到本地电脑</strong>。<del>至少比网盘快多了</del></p>
-<p>我们先创建一个属于自己的账号。</p>
-<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
-<li>什么是Git？</li>
-</ul>
-<p>Git  是一个快速、可扩展的 分布式版本控制系统。字面理解，版本控制系统，通过它能方便地管理各种版本的代码、软件。</p>
-<ul>
-<li>Git 的基本操作</li>
-</ul>
-<p>刚进入的时候，Git会要求用户设置名字和Email.</p>
-<ul>
-<li>初始化一个仓库</li>
-</ul>
-<p><code>git init</code></p>
-<p>完成操作后，我们会发现路径的最后多出一个 <strong><em>(master)</em></strong></p>
-<p><img src="/2022/10/15/my-first-blog/git_init.png" alt> </p>
-<p>这表示我们已经成功把当前文件夹初始化，这个文件夹就成为了一个Master主分支！</p>
-<ul>
-<li>克隆一个仓库</li>
-</ul>
-<p><code>git clone /path/to/repository</code>   复制本地仓库到当前文件夹</p>
-<p><code>git clone username@host:/path/to/repository</code> 复制远程仓库到当前文件夹</p>
-<p>这样子我们就能复制一个已经存在的仓库到本地文件夹。</p>
-<ul>
-<li>文件的操作</li>
-</ul>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\3.png" alt></p>
-<p>从图中我们发现，有些文件不是归Git管的。</p>
-<p>那什么又叫暂存区呢？下面我们马上就能知道。</p>
-<p>现在我们尝试将一个文件添加到Git的管理体系中去。</p>
-<p>当前我的文件夹下有三个自己的文件。我尝试将Hello.txt归入Git的管理</p>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\git_add.png" alt></p>
-<p>如图，我们用<code>$ git add Hello.txt</code>尝试将文件加入当前分支中。随后使用<code>$ git status</code>查看当前分支状态。</p>
-<p>Git显示的这些信息是什么意思呢？为什么我的文件还没有被提交呢？(No commits yet)</p>
-<p>刚刚我们使用了 add 操作，我们的Hello.txt 被放到了一个<strong>缓存</strong>区。我们还需要 commit 操作，才能真正把文件放到当前分支下。</p>
-<p>为了防止操作失误，Git把文件先放入<strong>缓存</strong>区。因此Git还为我们提供了撤销方案：<code>Git rm --cached &lt;file&gt;</code></p>
-<p>Cache 表示缓存， rm表示remove.</p>
-<p>例如，我们输入：</p>
-<p><code>$ git rm --cached Hello.txt</code>即可撤销刚才的操作。</p>
-<p>但是我们当然想提交啦！所以使用:</p>
-<p><code>git commit -m &quot;代码提交信息&quot;</code>来完成整个提交过程。</p>
-<p><strong>-m 表示message，</strong> 引号内可以任意填写，用来提醒自己提交了什么。</p>
-<p>ok，现在我们使用<code>git status</code> 查看当前文件夹状态。<br>可以发现，没有文件在缓冲区，有两个文件还没有被Git追踪。</p>
-<p><img src="/2022/10/15/my-first-blog/My_First_Blog\git_commit_suc.png" alt></p>
-<p>现在，你的改动已经提交到了<code>Head</code>，也就是Git的管理范围之下。但是还没到你的<strong>远端仓库</strong>。</p>
+<h2 id="Git-amp-github"><a href="#Git-amp-github" class="headerlink" title="Git  &amp;  github"></a>Git  &amp;  github</h2><p>学习git，最快速有效的方法是从将每一种操作将应用场景相配，这样才能明白git的强大之处。</p>
+<p>我从知乎的一些教程开始学习github及git。作为一个一无所知的小白，我的每一步操作都需要指点。因为一旦出了问题，不知道原理的我都会不知所措。</p>
+<p>建议  <a target="_blank" rel="noopener" href="https://missing.csail.mit.edu/2020/version-control/">观看这个教程</a>  来学习git。似乎所有学习git的道路都不约而同地指向这一条。</p>
 <h2 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h2><ol>
 <li><strong>Markdown Pro 激活</strong></li>
 </ol>
@@ -512,11 +468,12 @@
 <p>注册码(Key)：<br><code>4vuvQFtGkF0oH7by922v75FtaUGq7niFveCKDxqC2KSqYTfaSGzxzxKQXNhc2BG51N9URrF71PZcBGdVxEm41c/FasBJQybIEYkahzRnjGwhaEocTe2eye6RZpzjaEvoz9fm04e2oyveK5wjXAXVmTRTDnTJvbNG7pEH1y6SC5mgxbhrNQ5/2GyQD7Ml/X2ipVZ7MdQkFdkEiM+H+99/ar0azcwrdQ8s0Zg31kjdcbVsL3DjW2GMlvxsvGpCVjn7savohzdhHq7QjFrl5/C4e6TVsEjaaBSVkAA18ag2Dvx7c2vOf9OlndNZxE8GARRSV2lQdahNKlrKIYK3E3UpgQ==</code></p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.yanshiba.com/2015/04/10/markdownpad%202%20pro%E7%89%88%E6%9C%AC%20%E6%B3%A8%E5%86%8C%E7%A0%81/">注册码来源</a></p>
+<p>后来笔者发现，不如直接用VScode内置的 Markdown 预览器。  在上方搜索栏搜索  <code>&gt; markdown: open preview</code>  即可打开实时预览。</p>
 <ol>
 <li><strong>基本语法</strong></li>
 </ol>
 <p>参考<a target="_blank" rel="noopener" href="https://markdown.com.cn/">Markdown官方教程</a></p>
-<p>Markdown语法不难，不需要刻意去学习。重要的是<strong>多实践</strong>，才能熟练运用。</p>
+<p>作为一个文本标注语言，它没什么好学的。重要的是<strong>多实践</strong>，才能熟练运用。</p>
 <ol>
 <li><strong>front-matter</strong></li>
 </ol>
@@ -528,7 +485,7 @@ date: 2022-10-15 22:28:09
 categories: New Gadgets
 ---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><br>它用于描述文档的几个基本属性。</p>
 <ol>
-<li>踩坑记录</li>
+<li><strong>Others to pay attention</strong></li>
 </ol>
 <p>markdown引用图片时，文件路径中不能有空格或者中文！</p>
 <p>例如 <img src="/2022/10/15/my-first-blog/1.png" alt> 就不能正常引用图片。 </p>
